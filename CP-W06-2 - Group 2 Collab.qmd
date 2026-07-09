@@ -1,0 +1,18 @@
+---
+title: "M01-2-Introduction to Literate Programming-Application Assignment"
+author: "Leeann Lewis-Waddell"
+date: 'Leeann Lewis-Waddell'
+format: 
+  html: 
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    code-line-numbers: true
+    code-fold: false
+    code-link: true
+    embed-resources: true
+editor: visual
+execute: 
+  freeze: auto
+  warning: false
+---
