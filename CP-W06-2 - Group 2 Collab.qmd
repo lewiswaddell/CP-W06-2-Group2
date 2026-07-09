@@ -17,6 +17,10 @@ execute:
   warning: false
 ---
 
+# Project Objectives
+
+1.  
+
 # GitHub Repo
 
 -   <https://github.com/lewiswaddell/CP-W06-2-Group2.git>
