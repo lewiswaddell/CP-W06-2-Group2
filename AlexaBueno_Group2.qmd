@@ -1,0 +1,20 @@
+---
+title: "Alexa Bueno - Group 2"
+format: html
+---
+
+
+
+## Topic
+
+[Shopify Sales Dataset](https://www.kaggle.com/datasets/aliiihussain/shopify-sales-dataset-for-ml-and-eda?resource=download)
+
+## Research Question
+
+How do customer ratings and return behavior influence customer purchasing patterns and overall customer satisfaction in a Shopify store?
+
+## Project Objectives
+
+1. To analyze the relationship between customer ratings, product returns, and customer purchasing behavior.
+
+2. To identify which factors contribute to higher customer satisfaction and improved shopping experiences in an e-commerce environment.
