@@ -1,5 +1,5 @@
 ---
-title: "M01-2-Introduction to Literate Programming-Application Assignment"
+title: "CP-W06-2 - Group 2 Collaboration"
 author: "Leeann Lewis-Waddell"
 date: 'Leeann Lewis-Waddell'
 format: 
