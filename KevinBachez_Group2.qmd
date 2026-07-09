@@ -1,0 +1,14 @@
+---
+title: "Kevin Bachez - Group 2"
+format: html
+---
+
+## Research Questions
+
+1. How do discounts influence total sales revenue and customer purchasing behavior in a Shopify store?
+
+2. Which product categories contribute the most to total sales and profitability in the Shopify store?
+
+## Contribution
+
+I contributed my individual research questions to the group project and created my individual QMD and HTML files.
