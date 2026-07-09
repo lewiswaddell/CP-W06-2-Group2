@@ -1,6 +1,6 @@
 ---
 title: "CP-W06-2 - Group 2 Collaboration"
-author: "Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell, Ron Stephen Sabilla, Brian Vuong"
+author: "Brian Vuong"
 date: today
 format: 
   html: 
@@ -23,12 +23,11 @@ execute:
 
 # Research Question
 
-To what extent do marketing acquisition channels and applied discount levels influence the probability of a high-value customer conversion, and can these variables be utilized to build a predictive model for future customer acquisition?
-
+"To what extent do marketing acquisition channels and applied discount levels influence the probability of a high-value customer conversion, and can these variables be utilized to build a predictive model for future customer acquisition?"
 
 # Project Objectives
 
-1.  Do repeat customers behave differently, such as fewer returns or bigger average order number?
+1.  To evaluate how marketing acquisition channels and applied discount levels influence high-value customer conversion, and to determine if these variables can be used to construct a predictive model for future customer acquisition.
 
 # GitHub Repo
 
