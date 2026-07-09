@@ -1,7 +1,12 @@
 ---
 title: "CP-W06-2 - Group 2 Collaboration"
+<<<<<<< HEAD
 author: "Leeann Lewis-Waddell, Brian Vuong, Ron Stephen Sabilla"
 date: 'today'
+=======
+author: "Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell, Ron Stephen Sabilla, Brian Vuong"
+date: today
+>>>>>>> ff8a0ab246177092aa2453886ab751e781f9527a
 format: 
   html: 
     toc: true
@@ -17,6 +22,7 @@ execute:
   warning: false
 ---
 
+<<<<<<< HEAD
 
 ## Research Question - Brian Vuong
 
@@ -25,3 +31,16 @@ execute:
 
 
 
+=======
+# Topic
+
+[Shopify Sales Dataset](https://www.kaggle.com/datasets/aliiihussain/shopify-sales-dataset-for-ml-and-eda)
+
+# Project Objectives
+
+1.  
+
+# GitHub Repo
+
+-   <https://github.com/lewiswaddell/CP-W06-2-Group2.git>
+>>>>>>> ff8a0ab246177092aa2453886ab751e781f9527a
