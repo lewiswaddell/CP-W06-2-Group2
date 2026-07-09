@@ -22,11 +22,12 @@ execute:
 [Shopify Sales Dataset](https://www.kaggle.com/datasets/aliiihussain/shopify-sales-dataset-for-ml-and-eda)
 
 # Research Question
-"To what extent do marketing acquisition channels and applied discount levels influence the probability of a high-value customer conversion, and can these variables be utilized to build a predictive model for future customer acquisition?" 
+
+To what extent do marketing acquisition channels and applied discount levels influence the probability of a high-value customer conversion, and can these variables be utilized to build a predictive model for future customer acquisition?
 
 # Project Objectives
 
-1.  
+1.  Do repeat customers behave differently, such as fewer returns or bigger average order number?
 
 # GitHub Repo
 
