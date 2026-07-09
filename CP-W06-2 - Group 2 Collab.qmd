@@ -1,12 +1,7 @@
 ---
 title: "CP-W06-2 - Group 2 Collaboration"
-<<<<<<< Updated upstream
-author: "Leeann Lewis-Waddell, Brian Vuong, Ron Stephen Sabilla"
-date: 'Leeann Lewis-Waddell'
-=======
 author: "Leeann Lewis-Waddell"
 date: today
->>>>>>> Stashed changes
 format: 
   html: 
     toc: true
@@ -21,3 +16,7 @@ execute:
   freeze: auto
   warning: false
 ---
+
+# GitHub Repo
+
+-   <https://github.com/lewiswaddell/CP-W06-2-Group2.git>
