@@ -16,3 +16,8 @@ execute:
   freeze: auto
   warning: false
 ---
+
+
+## Research Question - Brian Vuong
+
+**To what extent do marketing acquisition channels and applied discount levels influence the probability of a high-value customer conversion, and can these variables be utilized to build a predictive model for future customer acquisition?**
