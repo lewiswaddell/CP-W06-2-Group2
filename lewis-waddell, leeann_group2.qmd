@@ -1,0 +1,38 @@
+---
+title: "CP-W06-2 - Group 2 Collaboration"
+author: "Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell, Ron Stephen Sabilla, Brian Vuong"
+date: today
+format: 
+  html: 
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    code-line-numbers: true
+    code-fold: false
+    code-link: true
+    embed-resources: true
+editor: visual
+execute: 
+  freeze: auto
+  warning: false
+---
+
+# Topic
+
+[Shopify Sales Dataset](https://www.kaggle.com/datasets/aliiihussain/shopify-sales-dataset-for-ml-and-eda)
+
+# Research Question
+
+To what extent do marketing acquisition channels and applied discount levels influence the probability of a high-value customer conversion, and can these variables be utilized to build a predictive model for future customer acquisition? ***BV***
+
+# Project Objectives
+
+1.  Do repeat customers behave differently, such as fewer returns or bigger average order number? ***LLW***
+
+# GitHub Repo
+
+-   <https://github.com/lewiswaddell/CP-W06-2-Group2.git>
+
+-   Group 2 Collaborators
+
+    ![](images/clipboard-3348103008.png)
