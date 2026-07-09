@@ -1,6 +1,6 @@
 ---
 title: "CP-W06-2 - Group 2 Collaboration"
-author: "Leeann Lewis-Waddell, Brian Vuong"
+author: "Leeann Lewis-Waddell, Brian Vuong, Ron Stephen Sabilla"
 date: 'Leeann Lewis-Waddell'
 format: 
   html: 
