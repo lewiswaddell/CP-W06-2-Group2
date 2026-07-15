@@ -140,11 +140,27 @@
 </div>
 
 </section>
+<section>
 <section id="problem-definition" class="title-slide slide level1 center">
 <h1>Problem Definition</h1>
-<p>enter text</p>
-</section>
 
+</section>
+<section id="the-core-challenge" class="slide level2">
+<h2>The Core Challenge</h2>
+<ul>
+<li><strong>The Issue:</strong> While top-line gross transaction value is growing across our global distribution network, <strong>net profit margins</strong> are being aggressively eroded.</li>
+<li><strong>The Friction:</strong> High customer acquisition costs from channels like <code>Paid Ads</code> and <code>Social Media</code> are compounded by excessive promotional discounting and high product return rates.</li>
+<li><strong>The Gap:</strong> The business lacks an automated, predictive system to identify which combinations of product categories, traffic sources, and pricing discount structures trigger unprofitable transactions.</li>
+</ul>
+</section>
+<section id="business-financial-impact" class="slide level2">
+<h2>Business &amp; Financial Impact</h2>
+<ul>
+<li><strong>Margin Compression:</strong> Heavy discounts (<code>discount_percent</code>) drive high volume (<code>quantity</code>) but cannibalize the net <code>profit</code> per order.</li>
+<li><strong>Logistical Drain:</strong> Processing returns (<code>is_returned</code>) creates major operational bottlenecks and sunk costs via absorbed <code>shipping_cost</code> overhead.</li>
+<li><strong>The Goal:</strong> Develop an exploratory and machine learning framework to optimize marketing spend allocation, predict order return probabilities, and maximize net profit margins.</li>
+</ul>
+</section></section>
 <section id="research-objectives" class="title-slide slide level1 center">
 <h1>Research Objectives</h1>
 <p>enter text</p>
@@ -180,11 +196,141 @@
 <p>enter text</p>
 </section>
 
-<section id="r03" class="title-slide slide level1 center">
-<h1>R03</h1>
-<p>enter text</p>
-</section>
+<section>
+<section id="ro3-returns-profitability-analysis-brian" class="title-slide slide level1 center">
+<h1>RO3: Returns &amp; Profitability Analysis (Brian)</h1>
 
+</section>
+<section id="ro3-research-objective" class="slide level2">
+<h2>RO3: Research Objective</h2>
+<blockquote>
+<p><strong>Objective:</strong> Evaluate how product categories, shipping costs, customer ratings, and discount structures impact the probability of an item being returned (<code>is_returned</code>), and quantify the resulting drain on net <code>profit</code>.</p>
+</blockquote>
+<ul>
+<li><strong>The Hypothesis:</strong> High discount rates (<code>discount_percent &gt; 30%</code>) combined with low customer satisfaction scores (<code>rating &lt; 3.0</code>) in specific categories like <em>Fashion</em> and <em>Footwear</em> are the primary drivers of item returns.</li>
+<li><strong>Key Risk Indicators:</strong>
+<ul>
+<li>Post-purchase return behavior patterns.</li>
+<li>Sunk shipping costs absorbed during returned transactions.</li>
+<li>Sentiment/Rating thresholds that trigger a return.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ro3-methodology-statistical-modeling" class="slide level2">
+<h2>RO3: Methodology &amp; Statistical Modeling</h2>
+<ul>
+<li><strong>Analytical Approach in R:</strong>
+<ul>
+<li>Fit a <strong>Logistic Regression Model</strong> using the baseline <code>glm(..., family = binomial)</code> function to isolate probabilities.</li>
+<li>Use the <code>broom</code> package to clean up statistical outputs and extract odds ratios for our predictors.</li>
+</ul></li>
+<li><strong>Model Validation:</strong>
+<ul>
+<li>Split data into training/testing sets using <code>caret</code>.</li>
+<li>Evaluate performance using Confusion Matrices, ROC curves (<code>pROC</code> package), and Area Under the Curve (AUC) metrics.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ro3-ivs-and-dvs" class="title-slide slide level1 center">
+<h1>RO3: IV’s and DV’s</h1>
+
+</section>
+<section id="variables-matrix" class="slide level2">
+<h2>Variables Matrix</h2>
+<p>We will isolate operational metrics and customer behavior variables within our R environment to predict return risks.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Variable Role</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>is_returned</code></strong></td>
+<td style="text-align: left;"><strong>Dependent Variable (DV)</strong></td>
+<td style="text-align: left;">Binary Factor (0 or 1)</td>
+<td style="text-align: left;">Represents whether the customer returned the product.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>product_category</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Categorical / Factor</td>
+<td style="text-align: left;">The segment of the product purchased (<em>Fashion, Electronics, etc.</em>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>discount_percent</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Percentage discount applied to the product.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>shipping_cost</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Logistical cost associated with delivering the order.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>rating</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Post-purchase customer feedback score (1.0 to 5.0).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ro3-plan-for-data-wrangling" class="title-slide slide level1 center">
+<h1>RO3: Plan for Data Wrangling</h1>
+
+</section>
+<section id="data-processing-pipeline-in-r" class="slide level2 scrollable">
+<h2>Data Processing Pipeline in R</h2>
+<p>Using the <code>tidyverse</code> suite (primarily <code>dplyr</code> and <code>lubridate</code>), we will transform the raw Shopify data:</p>
+<ol type="1">
+<li><strong>Date Parsing:</strong> Convert <code>order_date</code> using <code>ymd()</code> to facilitate time-series feature extraction.</li>
+<li><strong>Data Cleaning:</strong> Check for missing elements via <code>sum(is.na(df))</code> (the dataset is currently clean, avoiding the need for <code>na.omit()</code> or imputation).</li>
+<li><strong>Factoring Tiers:</strong> Convert <code>is_returned</code> and <code>product_category</code> into explicit R factors using <code>as.factor()</code> for proper regression modeling.</li>
+<li><strong>Feature Engineering via <code>mutate()</code>:</strong>
+<ul>
+<li>Compute a <strong>Net Margin %</strong> metric: <code>mutate(net_margin = (profit / revenue) * 100)</code>.</li>
+<li>Bin the continuous <code>rating</code> scores into an ordered factor tier (<em>Low, Neutral, High</em>) using <code>case_when()</code>.</li>
+</ul></li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ro3-plan-for-data-visualization" class="title-slide slide level1 center">
+<h1>RO3: Plan for Data Visualization</h1>
+
+</section>
+<section id="visualizing-insights-with-ggplot2" class="slide level2">
+<h2>Visualizing Insights with <code>ggplot2</code></h2>
+<p>We will engineer publication-ready exploratory graphics using R’s <code>ggplot2</code> framework:</p>
+<ul>
+<li><strong>Return Rates by Segment:</strong> A <code>geom_col()</code> bar chart plotting the proportion of returned items across different <code>product_category</code> strings to isolate high-risk items.</li>
+<li><strong>Discount Erosion Scatters:</strong> A <code>geom_point(alpha = 0.4)</code> plot tracking <code>discount_percent</code> against <code>profit</code>, overlaid with a smooth trendline via <code>geom_smooth(method = "lm")</code> to see where margin drops below zero.</li>
+<li><strong>Rating Distribution vs.&nbsp;Returns:</strong> Parallel boxplots via <code>geom_boxplot()</code> mapping the distribution of customer <code>rating</code> scores against the binary <code>is_returned</code> factor levels.</li>
+<li><strong>Geographic Breakdown:</strong> A faceted horizontal bar plot using <code>facet_wrap(~customer_country)</code> to observe which regions bear the highest shipping costs on returned items.</li>
+</ul>
+</section></section>
 <section id="r04" class="title-slide slide level1 center">
 <h1>R04</h1>
 <p>enter text</p>

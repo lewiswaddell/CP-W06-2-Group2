@@ -70,8 +70,6 @@ enter text
   * Split data into training/testing sets using `caret`.
   * Evaluate performance using Confusion Matrices, ROC curves (`pROC` package), and Area Under the Curve (AUC) metrics.
 
----
-
 # RO3: IV's and DV's
 
 ## Variables Matrix
@@ -85,8 +83,6 @@ We will isolate operational metrics and customer behavior variables within our R
 | **`shipping_cost`** | Independent Variable (IV) | Numeric / Continuous | Logistical cost associated with delivering the order. |
 | **`rating`**| Independent Variable (IV) | Numeric / Continuous | Post-purchase customer feedback score (1.0 to 5.0). |
 
----
-
 # RO3: Plan for Data Wrangling
 
 ## Data Processing Pipeline in R
@@ -98,8 +94,6 @@ Using the `tidyverse` suite (primarily `dplyr` and `lubridate`), we will transfo
 4. **Feature Engineering via `mutate()`:**
    * Compute a **Net Margin %** metric: `mutate(net_margin = (profit / revenue) * 100)`.
    * Bin the continuous `rating` scores into an ordered factor tier (*Low, Neutral, High*) using `case_when()`.
-
----
 
 # RO3: Plan for Data Visualization
 
