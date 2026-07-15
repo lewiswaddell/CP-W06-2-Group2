@@ -31,20 +31,7 @@ enter text
 
 # Importance of the Topic
 
-## Why This Research Matters
-
-- Online retailers invest heavily in customer acquisition, but not every marketing channel produces equally valuable customers.
-- Discounts may increase purchase activity, but excessive discounting can reduce profit and attract customers with lower long-term value.
-- Understanding how acquisition channels and discount levels influence high-value conversions can help businesses use their marketing budgets more effectively.
-- A predictive model can help retailers identify which future customers or transactions are most likely to generate strong value.
-
-## Practical Business Value
-
-- Prioritize higher-performing acquisition channels.
-- Set more effective discount levels.
-- Reduce inefficient promotional spending.
-- Target customers with greater revenue or profit potential.
-- Improve future customer-acquisition strategies.enter text
+enter text
 
 # Population
 
@@ -71,18 +58,9 @@ Kaggle notes the dataset is "realistic," presumably meaning transactions are not
 
 enter text
 
-# Data Wrangling:
+# Data Wrangling
 
-## From Records to Data
-* **Data Ingestion:** Reading the raw, structured transaction records directly from the `shopify_sales_dataset_ml_eda.csv` file into R using `read_csv()`.
-* **Dataset Shape & Dimensions:**
-  * **60,000** unique historical transaction records.
-  * **17** distinct variable attributes capturing customer, financial, and logistical behaviors.
-* **Initial Schema Assessment:**
-  * Identifying numerical/continuous identifiers (`product_price`, `shipping_cost`, `revenue`, `profit`).
-  * Identifying categorical text features (`product_category`, `customer_country`, `traffic_source`, `payment_method`).
-* **Data Integrity & Quality Check:** 
-  * Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
+enter text
 
 # R01
 
