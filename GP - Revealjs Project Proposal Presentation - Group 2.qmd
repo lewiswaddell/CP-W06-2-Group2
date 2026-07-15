@@ -104,11 +104,15 @@ Using the **tidyverse** package in R, we will prepare the dataset before analysi
 2.  Checking for missing values and duplicate observations.
 3.  Converting categorical variables such as `product_category`, `traffic_source`, `customer_country`, `payment_method`, and `is_returned` into factors.
 4.  Verifying numeric variables such as `rating`, `profit`, `revenue`, and `discount_percent` are stored correctly.
-5.  Creating additional variables when needed to support each research objective.enter text
+5.  Creating additional variables when needed to support each research objective.
 
 ## Part 3: Transforming the Data
 
-enter text
+1. Converting date and time variables into a consistent format for analysis.
+2. Creating calculated variables such as `total_sales`, `average_order_value`, and customer purchase metrics.
+3. Aggregating data by product, customer, and time period to support each research objective.
+4. Reshaping the data when necessary to improve analysis and visualization.
+5. Saving the transformed dataset for use in statistical analysis and data visualization.
 
 
 # RO1: Marketing Channels & Average Order Value
