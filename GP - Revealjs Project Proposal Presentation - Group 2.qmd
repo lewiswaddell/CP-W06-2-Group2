@@ -11,6 +11,50 @@ format:
 footer: "IBM6540 | July 15, 2026"
 ---
 
-install.packages("sass")
-library(sass)
+# Problem Definition
 
+enter text
+
+# Research Objectives
+
+enter text
+
+# Importance of the Topic
+
+enter text
+
+# Population
+
+enter text
+
+# Sampling Data Collection
+
+enter text
+
+# Data Wrangling
+
+enter text
+
+# R01
+
+enter text
+
+# R02
+
+enter text
+
+# R03
+
+enter text
+
+# R04
+
+enter text
+
+# R05
+
+enter text
+
+# Conclusion
+
+enter text
