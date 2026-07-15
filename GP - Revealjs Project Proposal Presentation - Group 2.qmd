@@ -29,7 +29,20 @@ enter text
 
 # Importance of the Topic
 
-enter text
+## Why This Research Matters
+
+- Online retailers invest heavily in customer acquisition, but not every marketing channel produces equally valuable customers.
+- Discounts may increase purchase activity, but excessive discounting can reduce profit and attract customers with lower long-term value.
+- Understanding how acquisition channels and discount levels influence high-value conversions can help businesses use their marketing budgets more effectively.
+- A predictive model can help retailers identify which future customers or transactions are most likely to generate strong value.
+
+## Practical Business Value
+
+- Prioritize higher-performing acquisition channels.
+- Set more effective discount levels.
+- Reduce inefficient promotional spending.
+- Target customers with greater revenue or profit potential.
+- Improve future customer-acquisition strategies.enter text
 
 # Population
 
