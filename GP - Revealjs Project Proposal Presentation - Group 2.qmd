@@ -251,6 +251,8 @@ We will engineer publication-ready exploratory graphics using R's `ggplot2` fram
 
 -   **Boxplot:** Return rate distributionRO5: Sales Trends and Seasonality
 
+# RO5: Sales Trends and Seasonality
+
 ## Research Objective
 
 > **Objective:** Determine how sales performance changes over time and whether seasonal patterns differ across product categories.
