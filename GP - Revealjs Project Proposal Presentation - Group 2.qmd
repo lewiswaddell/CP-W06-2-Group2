@@ -65,7 +65,19 @@ enter text
 
 # Data Wrangling
 
-enter text
+# Data Wrangling: From Records to Data
+
+## From Records to Data
+* **Data Ingestion:** Reading the raw, structured transaction records directly from the `shopify_sales_dataset_ml_eda.csv` file into R using `read_csv()`.
+* **Dataset Shape & Dimensions:**
+  * **60,000** unique historical transaction records.
+  * **17** distinct variable attributes capturing customer, financial, and logistical behaviors.
+* **Initial Schema Assessment:**
+  * Identifying numerical/continuous identifiers (`product_price`, `shipping_cost`, `revenue`, `profit`).
+  * Identifying categorical text features (`product_category`, `customer_country`, `traffic_source`, `payment_method`).
+* **Data Integrity & Quality Check:** 
+  * Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
+
 
 # R01
 
@@ -73,7 +85,7 @@ enter text
 
 # R02:
 
-# RO3: Returns & Profitability Analysis (Brian)
+# RO3: Returns & Profitability Analysis
 
 ## RO3: Research Objective
 
