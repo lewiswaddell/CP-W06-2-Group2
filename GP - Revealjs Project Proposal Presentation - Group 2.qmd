@@ -1,6 +1,6 @@
 ---
 title: "GP - Project Proposal Presentation"
-subtitle: "subtitle here"
+subtitle: "Shopify Sales Dataset for ML & EDA"
 author: "**Group 2:** <br> Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell, <br> Ron Stephen Sabilla, Brian Vuong"
 format:
   revealjs: 
@@ -14,14 +14,16 @@ footer: "IBM6540 | July 15, 2026"
 # Problem Definition
 
 ## The Core Challenge
-* **The Issue:** While top-line gross transaction value is growing across our global distribution network, **net profit margins** are being aggressively eroded.
-* **The Friction:** High customer acquisition costs from channels like `Paid Ads` and `Social Media` are compounded by excessive promotional discounting and high product return rates.
-* **The Gap:** The business lacks an automated, predictive system to identify which combinations of product categories, traffic sources, and pricing discount structures trigger unprofitable transactions.
+
+-   **The Issue:** While top-line gross transaction value is growing across our global distribution network, **net profit margins** are being aggressively eroded.
+-   **The Friction:** High customer acquisition costs from channels like `Paid Ads` and `Social Media` are compounded by excessive promotional discounting and high product return rates.
+-   **The Gap:** The business lacks an automated, predictive system to identify which combinations of product categories, traffic sources, and pricing discount structures trigger unprofitable transactions.
 
 ## Business & Financial Impact
-* **Margin Compression:** Heavy discounts (`discount_percent`) drive high volume (`quantity`) but cannibalize the net `profit` per order.
-* **Logistical Drain:** Processing returns (`is_returned`) creates major operational bottlenecks and sunk costs via absorbed `shipping_cost` overhead.
-* **The Goal:** Develop an exploratory and machine learning framework to optimize marketing spend allocation, predict order return probabilities, and maximize net profit margins.
+
+-   **Margin Compression:** Heavy discounts (`discount_percent`) drive high volume (`quantity`) but cannibalize the net `profit` per order.
+-   **Logistical Drain:** Processing returns (`is_returned`) creates major operational bottlenecks and sunk costs via absorbed `shipping_cost` overhead.
+-   **The Goal:** Develop an exploratory and machine learning framework to optimize marketing spend allocation, predict order return probabilities, and maximize net profit margins.
 
 # Research Objectives
 
@@ -33,7 +35,24 @@ enter text
 
 # Population
 
-enter text
+Shopify e-commerce orders from January 2023 to June 2025
+
+-   **Unit of analysis:** Individual order (n = 60,000)
+
+-   31,154 unique customers \| 6,998 unique products
+
+-   **Scope limit:** Findings generalize only to these countries, categories, and date range
+
+|              |             |        |             |          |        |         |            |
+|---------|----------|---------|---------|---------|---------|---------|----------|
+| **Country**  | USA         | UAE    | CAN         | UK       | IND    | GER     | AUS        |
+| **Category** | Accessories | Sports | Electronics | Footwear | Beauty | Fashion | Home Decor |
+
+[Kaggle, Shopify Sales Dataset for ML & EDA](https://www.kaggle.com/datasets/aliiihussain/shopify-sales-dataset-for-ml-and-eda/data)
+
+::: callout-important
+Kaggle notes the dataset is "realistic," presumably meaning transactions are not verified, and thus, **synthetic**.
+:::
 
 # Sampling Data Collection
 
@@ -54,57 +73,61 @@ enter text
 # RO3: Returns & Profitability Analysis (Brian)
 
 ## RO3: Research Objective
+
 > **Objective:** Evaluate how product categories, shipping costs, customer ratings, and discount structures impact the probability of an item being returned (`is_returned`), and quantify the resulting drain on net `profit`.
 
-* **The Hypothesis:** High discount rates (`discount_percent > 30%`) combined with low customer satisfaction scores (`rating < 3.0`) in specific categories like *Fashion* and *Footwear* are the primary drivers of item returns.
-* **Key Risk Indicators:**
-  * Post-purchase return behavior patterns.
-  * Sunk shipping costs absorbed during returned transactions.
-  * Sentiment/Rating thresholds that trigger a return.
+-   **The Hypothesis:** High discount rates (`discount_percent > 30%`) combined with low customer satisfaction scores (`rating < 3.0`) in specific categories like *Fashion* and *Footwear* are the primary drivers of item returns.
+-   **Key Risk Indicators:**
+    -   Post-purchase return behavior patterns.
+    -   Sunk shipping costs absorbed during returned transactions.
+    -   Sentiment/Rating thresholds that trigger a return.
 
 ## RO3: Methodology & Statistical Modeling
-* **Analytical Approach in R:** 
-  * Fit a **Logistic Regression Model** using the baseline `glm(..., family = binomial)` function to isolate probabilities.
-  * Use the `broom` package to clean up statistical outputs and extract odds ratios for our predictors.
-* **Model Validation:** 
-  * Split data into training/testing sets using `caret`.
-  * Evaluate performance using Confusion Matrices, ROC curves (`pROC` package), and Area Under the Curve (AUC) metrics.
+
+-   **Analytical Approach in R:**
+    -   Fit a **Logistic Regression Model** using the baseline `glm(..., family = binomial)` function to isolate probabilities.
+    -   Use the `broom` package to clean up statistical outputs and extract odds ratios for our predictors.
+-   **Model Validation:**
+    -   Split data into training/testing sets using `caret`.
+    -   Evaluate performance using Confusion Matrices, ROC curves (`pROC` package), and Area Under the Curve (AUC) metrics.
 
 # RO3: IV's and DV's
 
 ## Variables Matrix
+
 We will isolate operational metrics and customer behavior variables within our R environment to predict return risks.
 
 | Variable Name | Variable Role | Data Type | Description |
-| :--- | :--- | :--- | :--- |
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **`is_returned`** | **Dependent Variable (DV)** | Binary Factor (0 or 1) | Represents whether the customer returned the product. |
 | **`product_category`** | Independent Variable (IV) | Categorical / Factor | The segment of the product purchased (*Fashion, Electronics, etc.*). |
 | **`discount_percent`** | Independent Variable (IV) | Numeric / Continuous | Percentage discount applied to the product. |
 | **`shipping_cost`** | Independent Variable (IV) | Numeric / Continuous | Logistical cost associated with delivering the order. |
-| **`rating`**| Independent Variable (IV) | Numeric / Continuous | Post-purchase customer feedback score (1.0 to 5.0). |
+| **`rating`** | Independent Variable (IV) | Numeric / Continuous | Post-purchase customer feedback score (1.0 to 5.0). |
 
 # RO3: Plan for Data Wrangling
 
 ## Data Processing Pipeline in R
+
 Using the `tidyverse` suite (primarily `dplyr` and `lubridate`), we will transform the raw Shopify data:
 
-1. **Date Parsing:** Convert `order_date` using `ymd()` to facilitate time-series feature extraction.
-2. **Data Cleaning:** Check for missing elements via `sum(is.na(df))` (the dataset is currently clean, avoiding the need for `na.omit()` or imputation).
-3. **Factoring Tiers:** Convert `is_returned` and `product_category` into explicit R factors using `as.factor()` for proper regression modeling.
-4. **Feature Engineering via `mutate()`:**
-   * Compute a **Net Margin %** metric: `mutate(net_margin = (profit / revenue) * 100)`.
-   * Bin the continuous `rating` scores into an ordered factor tier (*Low, Neutral, High*) using `case_when()`.
+1.  **Date Parsing:** Convert `order_date` using `ymd()` to facilitate time-series feature extraction.
+2.  **Data Cleaning:** Check for missing elements via `sum(is.na(df))` (the dataset is currently clean, avoiding the need for `na.omit()` or imputation).
+3.  **Factoring Tiers:** Convert `is_returned` and `product_category` into explicit R factors using `as.factor()` for proper regression modeling.
+4.  **Feature Engineering via `mutate()`:**
+    -   Compute a **Net Margin %** metric: `mutate(net_margin = (profit / revenue) * 100)`.
+    -   Bin the continuous `rating` scores into an ordered factor tier (*Low, Neutral, High*) using `case_when()`.
 
 # RO3: Plan for Data Visualization
 
 ## Visualizing Insights with `ggplot2`
+
 We will engineer publication-ready exploratory graphics using R's `ggplot2` framework:
 
-* **Return Rates by Segment:** A `geom_col()` bar chart plotting the proportion of returned items across different `product_category` strings to isolate high-risk items.
-* **Discount Erosion Scatters:** A `geom_point(alpha = 0.4)` plot tracking `discount_percent` against `profit`, overlaid with a smooth trendline via `geom_smooth(method = "lm")` to see where margin drops below zero.
-* **Rating Distribution vs. Returns:** Parallel boxplots via `geom_boxplot()` mapping the distribution of customer `rating` scores against the binary `is_returned` factor levels.
-* **Geographic Breakdown:** A faceted horizontal bar plot using `facet_wrap(~customer_country)` to observe which regions bear the highest shipping costs on returned items.
-
+-   **Return Rates by Segment:** A `geom_col()` bar chart plotting the proportion of returned items across different `product_category` strings to isolate high-risk items.
+-   **Discount Erosion Scatters:** A `geom_point(alpha = 0.4)` plot tracking `discount_percent` against `profit`, overlaid with a smooth trendline via `geom_smooth(method = "lm")` to see where margin drops below zero.
+-   **Rating Distribution vs. Returns:** Parallel boxplots via `geom_boxplot()` mapping the distribution of customer `rating` scores against the binary `is_returned` factor levels.
+-   **Geographic Breakdown:** A faceted horizontal bar plot using `facet_wrap(~customer_country)` to observe which regions bear the highest shipping costs on returned items.
 
 # R04
 
