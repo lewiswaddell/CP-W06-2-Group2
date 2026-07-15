@@ -1,24 +1,16 @@
 ---
-title: "GP - Revealjs Project Proposal Presentation - Group 2"
-format: revealjs
-editor: visual
+title: "GP - Project Proposal Presentation"
+subtitle: "subtitle here"
+author: "**Group 2:** <br> Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell, <br> Ron Stephen Sabilla, Brian Vuong"
+format:
+  revealjs: 
+    theme: solarized
+    slide-number: true
+    scrollable: true
+    controls: true
+footer: "IBM6540 | July 15, 2026"
 ---
 
-## Quarto
+install.packages("sass")
+library(sass)
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
-
-## Bullets
-
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
