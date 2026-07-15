@@ -30,10 +30,6 @@ footer: "IBM6540 | July 15, 2026"
 -   **Logistical Drain:** Processing returns (`is_returned`) creates major operational bottlenecks and sunk costs via absorbed `shipping_cost` overhead.
 -   **The Goal:** Develop an exploratory and machine learning framework to optimize marketing spend allocation, predict order return probabilities, and maximize net profit margins.
 
-# Research Objectives
-
-enter text
-
 # Importance of the Topic
 
 ## Why This Research Matters
@@ -396,4 +392,53 @@ We will engineer publication-ready exploratory graphics using R's `ggplot2` fram
 
 # Conclusion
 
-enter text
+## Bringing It Together
+
+::: {.incremental}
+- We set out to explain why **gross transaction value is growing while net
+  profit margins erode** — and each research objective isolates a different
+  piece of that puzzle
+- **Acquisition (RO1):** No single traffic source drives the highest AOV
+  overall, but the best-performing channel shifts by product category —
+  pointing to a category-specific acquisition strategy
+- **Satisfaction (RO2):** Customer rating isn't just a feedback metric — if
+  channel, discount level, and category predict satisfaction, it becomes an
+  early-warning signal for the return risk RO3 measures downstream
+- **Risk & operations (RO3):** Return risk appears concentrated where high
+  discounting and low ratings intersect, directly linking promotional
+  strategy to the "logistical drain" named in our problem statement
+- **Retention (RO4):** If repeat customers prove more margin-efficient and
+  disproportionately organic/low-cost-acquired, that reframes retention as a
+  profitability lever, not just a loyalty metric
+- **Timing (RO5):** Seasonal patterns by category inform *when* to spend,
+  not just *where* — completing the picture alongside RO1's channel findings
+:::
+
+## What This Means for the Business
+
+::: {.incremental}
+- Marketing spend, discount policy, satisfaction, and retention are not
+  separate problems — they interact, and treating them separately is likely
+  part of why margins keep compressing despite top-line growth
+- A predictive framework combining these findings could flag **which
+  channel–category–discount combinations are heading toward an
+  unprofitable, low-satisfaction, or high-return transaction before it
+  happens**
+- This directly answers the gap named in our problem definition: the
+  business currently lacks that kind of automated, predictive view
+:::
+
+## Next Steps
+
+::: {.incremental}
+- Next step: move from exploratory/descriptive analysis (this proposal) into
+  the predictive modeling stage — logistic regression for return risk (RO3),
+  multiple regression for satisfaction drivers (RO2), and potentially
+  extending both frameworks to predict order-level profitability directly
+:::
+
+## Thank You
+
+**Thank you for your time and attention.**
+
+We welcome any questions.
