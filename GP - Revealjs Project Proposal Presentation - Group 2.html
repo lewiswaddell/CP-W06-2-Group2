@@ -207,14 +207,14 @@
 </ul>
 <table class="caption-top">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 14%">
-<col style="width: 9%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -269,38 +269,14 @@
 <li>Because this is an existing dataset, no primary data collection or customer surveys are required.</li>
 </ul>
 </section></section>
-<section>
 <section id="data-wrangling" class="title-slide slide level1 center">
 <h1>Data Wrangling</h1>
-<<<<<<< HEAD
-
-</section>
-<section id="data-preparation-plan" class="slide level2 scrollable">
-<h2>Data Preparation Plan</h2>
-<p>Using the <strong>tidyverse</strong> package in R, we will prepare the dataset before analysis by:</p>
-<ol type="1">
-<li>Converting <code>order_date</code> into a Date format for time-based analysis.</li>
-<li>Checking for missing values and duplicate observations.</li>
-<li>Converting categorical variables such as <code>product_category</code>, <code>traffic_source</code>, <code>customer_country</code>, <code>payment_method</code>, and <code>is_returned</code> into factors.</li>
-<li>Verifying numeric variables such as <code>rating</code>, <code>profit</code>, <code>revenue</code>, and <code>discount_percent</code> are stored correctly.</li>
-<li>Creating additional variables when needed to support each research objective.enter text</li>
-</ol>
-</section></section>
-<section id="r01" class="title-slide slide level1 center">
-<h1>R01</h1>
-<p>enter text</p>
-</section>
-
-<section>
-<section id="ro2-customer-satisfaction-analysis-alexa" class="title-slide slide level1 center">
-<h1>RO2: Customer Satisfaction Analysis (Alexa)</h1>
-=======
 
 </section>
 
 <section>
-<section id="data-wrangling-from-records-to-data" class="title-slide slide level1 center">
-<h1>Data Wrangling: From Records to Data</h1>
+<section id="part-1-from-records-to-data" class="title-slide slide level1 center">
+<h1>Part 1: From Records to Data</h1>
 
 </section>
 <section id="from-records-to-data" class="slide level2">
@@ -322,6 +298,24 @@
 <li>Running <code>colSums(is.na(df))</code> confirms a pristine dataset with <strong>0 missing values</strong> across all 60,000 records. No initial imputation is required.</li>
 </ul></li>
 </ul>
+</section>
+<section id="part-2-tidying-the-data" class="slide level2">
+<h2>Part 2: Tidying the Data</h2>
+</section>
+<section id="data-preparation-plan" class="slide level2 scrollable">
+<h2>Data Preparation Plan</h2>
+<p>Using the <strong>tidyverse</strong> package in R, we will prepare the dataset before analysis by:</p>
+<ol type="1">
+<li>Converting <code>order_date</code> into a Date format for time-based analysis.</li>
+<li>Checking for missing values and duplicate observations.</li>
+<li>Converting categorical variables such as <code>product_category</code>, <code>traffic_source</code>, <code>customer_country</code>, <code>payment_method</code>, and <code>is_returned</code> into factors.</li>
+<li>Verifying numeric variables such as <code>rating</code>, <code>profit</code>, <code>revenue</code>, and <code>discount_percent</code> are stored correctly.</li>
+<li>Creating additional variables when needed to support each research objective.enter text</li>
+</ol>
+</section>
+<section id="part-3-transforming-the-data" class="slide level2">
+<h2>Part 3: Transforming the Data</h2>
+<p>enter text</p>
 </section></section>
 <section>
 <section id="ro1-marketing-channels-average-order-value" class="title-slide slide level1 center">
@@ -381,9 +375,9 @@
 <li><strong>Boxplot:</strong> Distribution of order values by traffic source to identify variability and potential outliers.</li>
 </ul>
 </section></section>
-<section id="r02" class="title-slide slide level1 center">
-<h1>R02:</h1>
->>>>>>> 782cacedd02bacf720c0a1923cee1881543d7267
+<section>
+<section id="ro2-customer-satisfaction-analysis-alexa" class="title-slide slide level1 center">
+<h1>RO2: Customer Satisfaction Analysis (Alexa)</h1>
 
 </section>
 <section id="ro2-research-objective" class="slide level2">
@@ -678,7 +672,7 @@
 </section>
 <section id="ro4-plan-for-data-wrangling" class="slide level2 scrollable">
 <h2>RO4 Plan for Data Wrangling</h2>
-<h3 id="data-processing-pipeline-in-r-1">Data Processing Pipeline in R</h3>
+<h3 id="data-processing-pipeline-in-r-2">Data Processing Pipeline in R</h3>
 <ol type="1">
 <li><strong>Aggregate</strong> transactions to customer level <code>group_by(customer_id)\</code></li>
 <li><strong>Derive</strong>: <code>is_repeat</code> (2+ orders), <code>cumulative_profit</code>, <code>customer_return_rate</code></li>
@@ -697,21 +691,8 @@
 <li><p><strong>Stacked Bar Chart:</strong> First-order channel mix (Paid vs.&nbsp;Organic/Low-cost)</p></li>
 <li><p><strong>Boxplot:</strong> Return rate distributionRO5: Sales Trends and Seasonality</p></li>
 </ul>
-</section>
-<section id="research-objective-1" class="slide level2">
-<h2>Research Objective</h2>
-<blockquote>
-<p><strong>Objective:</strong> Determine how sales performance changes over time and whether seasonal patterns differ across product categories.</p>
-</blockquote>
-<h3 id="hypothesis">Hypothesis</h3>
-<ul>
-<li>Revenue and order volume will vary across months and quarters.</li>
-<li>Seasonal sales patterns will differ by product category.</li>
-<li>Identifying peak sales periods can help improve inventory planning, promotions, and marketing strategies.</li>
-</ul>
 </section></section>
 <section>
-<<<<<<< Updated upstream
 <section id="ro5-sales-trends-and-seasonality" class="title-slide slide level1 center">
 <h1>RO5: Sales Trends and Seasonality</h1>
 
@@ -733,13 +714,7 @@
 <h1>RO5: IV’s and DV’s</h1>
 
 </section>
-=======
-<section id="ro5-ivs-and-dvs" class="title-slide slide level1 center">
-<h1>RO5: IV’s and DV’s</h1>
-
-</section>
->>>>>>> Stashed changes
-<section id="variables-matrix-1" class="slide level2">
+<section id="variables-matrix-2" class="slide level2">
 <h2>Variables Matrix</h2>
 <table class="caption-top">
 <colgroup>
