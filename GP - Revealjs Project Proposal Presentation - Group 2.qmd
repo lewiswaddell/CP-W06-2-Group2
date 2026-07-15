@@ -78,7 +78,7 @@ enter text
 
 # Data Wrangling
 
-# Data Wrangling: From Records to Data
+# Part 1: From Records to Data
 
 ## From Records to Data
 
@@ -92,11 +92,11 @@ enter text
 -   **Data Integrity & Quality Check:**
     -   Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
 
-## Tidying the Data
+## Part 2: Tidying the Data
 
 enter text
 
-## Transforming the Data
+## Part 3: Transforming the Data
 
 enter text
 
