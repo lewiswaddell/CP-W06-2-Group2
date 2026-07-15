@@ -6,8 +6,8 @@
 <script src="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Group 2:   Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell,   Ron Stephen Sabilla, Brian Vuong">
   <title>GP - Project Proposal Presentation</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/theme/quarto-1945fb974cec117259008fbf8a668806.css">
+  <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/theme/quarto-e7fae955c581777a40040bc55438a75a.css">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -232,26 +235,168 @@
 </div>
 </div>
 </section></section>
+<section>
 <section id="sampling-data-collection" class="title-slide slide level1 center">
 <h1>Sampling Data Collection</h1>
-<p>enter text</p>
-</section>
 
+</section>
+<section id="data-source" class="slide level2">
+<h2>Data Source</h2>
+<ul>
+<li>Secondary data obtained from the Shopify Sales Dataset for ML &amp; EDA available on Kaggle.</li>
+<li>Dataset contains <strong>60,000 Shopify e-commerce orders</strong> collected between <strong>January 2023 and June 2025</strong>.</li>
+<li>Each observation represents one completed customer order.</li>
+<li>The dataset includes customer behavior, product information, transaction details, ratings, returns, marketing channels, and financial performance metrics.</li>
+<li>Because this is an existing dataset, no primary data collection or customer surveys are required.</li>
+</ul>
+</section></section>
+<section>
 <section id="data-wrangling" class="title-slide slide level1 center">
 <h1>Data Wrangling</h1>
-<p>enter text</p>
-</section>
 
+</section>
+<section id="data-preparation-plan" class="slide level2 scrollable">
+<h2>Data Preparation Plan</h2>
+<p>Using the <strong>tidyverse</strong> package in R, we will prepare the dataset before analysis by:</p>
+<ol type="1">
+<li>Converting <code>order_date</code> into a Date format for time-based analysis.</li>
+<li>Checking for missing values and duplicate observations.</li>
+<li>Converting categorical variables such as <code>product_category</code>, <code>traffic_source</code>, <code>customer_country</code>, <code>payment_method</code>, and <code>is_returned</code> into factors.</li>
+<li>Verifying numeric variables such as <code>rating</code>, <code>profit</code>, <code>revenue</code>, and <code>discount_percent</code> are stored correctly.</li>
+<li>Creating additional variables when needed to support each research objective.enter text</li>
+</ol>
+</section></section>
 <section id="r01" class="title-slide slide level1 center">
 <h1>R01</h1>
 <p>enter text</p>
 </section>
 
-<section id="r02" class="title-slide slide level1 center">
-<h1>R02:</h1>
+<section>
+<section id="ro2-customer-satisfaction-analysis-alexa" class="title-slide slide level1 center">
+<h1>RO2: Customer Satisfaction Analysis (Alexa)</h1>
 
 </section>
+<section id="ro2-research-objective" class="slide level2">
+<h2>RO2: Research Objective</h2>
+<blockquote>
+<p><strong>Objective:</strong> Identify which customer and transaction characteristics contribute to higher customer satisfaction by examining how product categories, traffic sources, discount levels, and purchasing behavior influence customer <code>rating</code>.</p>
+</blockquote>
+<ul>
+<li><p><strong>The Hypothesis:</strong> Customers who purchase through <strong>Organic</strong> or <strong>Direct</strong> traffic sources, receive moderate discounts, and purchase from higher-rated product categories will report higher customer satisfaction scores (<code>rating</code>) than customers acquired through paid channels or heavily discounted purchases.</p></li>
+<li><p><strong>Key Customer Satisfaction Indicators:</strong></p>
+<ul>
+<li>Overall customer <code>rating</code> following a purchase.</li>
+<li>Product categories associated with higher customer satisfaction.</li>
+<li>Traffic sources that generate more satisfied customers.</li>
+<li>The relationship between promotional discounts and customer satisfaction.</li>
+</ul></li>
+</ul>
+</section>
+<section id="ro2-methodology-statistical-modeling" class="slide level2">
+<h2>RO2: Methodology &amp; Statistical Modeling</h2>
+<ul>
+<li><strong>Analytical Approach in R:</strong>
+<ul>
+<li>Perform <strong>Exploratory Data Analysis (EDA)</strong> using the <strong>tidyverse</strong> package to summarize customer satisfaction across products, marketing channels, and purchasing behaviors.</li>
+<li>Fit a <strong>Multiple Linear Regression Model</strong> using the baseline <code>lm()</code> function to determine which customer and transaction characteristics significantly influence customer <code>rating</code>.</li>
+<li>Use the <code>broom</code> package to organize regression coefficients, confidence intervals, and statistical significance for interpretation.</li>
+</ul></li>
+<li><strong>Model Validation:</strong>
+<ul>
+<li>Examine residual plots to verify regression assumptions.</li>
+<li>Evaluate overall model performance using <strong>R²</strong> and <strong>Adjusted R²</strong>.</li>
+<li>Identify statistically significant predictors through p-values and confidence intervals.</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="ro2-ivs-and-dvs" class="title-slide slide level1 center">
+<h1>RO2: IV’s and DV’s</h1>
 
+</section>
+<section id="variables-matrix" class="slide level2">
+<h2>Variables Matrix</h2>
+<p>We will examine customer satisfaction by modeling customer ratings as the outcome while evaluating transaction and marketing characteristics as predictors.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Variable Role</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>rating</code></strong></td>
+<td style="text-align: left;"><strong>Dependent Variable (DV)</strong></td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Customer satisfaction score ranging from 1 to 5 stars.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>product_category</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Categorical / Factor</td>
+<td style="text-align: left;">Product category purchased by the customer.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>traffic_source</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Categorical / Factor</td>
+<td style="text-align: left;">Marketing channel responsible for generating the purchase.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>discount_percent</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Percentage discount applied to the customer’s order.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>quantity</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Number of items purchased within the transaction.</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="ro2-plan-for-data-wrangling" class="title-slide slide level1 center">
+<h1>RO2: Plan for Data Wrangling</h1>
+
+</section>
+<section id="data-processing-pipeline-in-r" class="slide level2 scrollable">
+<h2>Data Processing Pipeline in R</h2>
+<p>Using the <strong>tidyverse</strong> suite (primarily <code>dplyr</code> and <code>lubridate</code>), we will prepare the Shopify dataset before analysis by:</p>
+<ol type="1">
+<li><strong>Date Parsing:</strong> Convert <code>order_date</code> into a date format using <code>ymd()</code> for time-based analysis.</li>
+<li><strong>Data Cleaning:</strong> Check for missing values and duplicate observations to ensure data quality.</li>
+<li><strong>Variable Conversion:</strong> Convert <code>product_category</code> and <code>traffic_source</code> into factors using <code>as.factor()</code> for statistical modeling.</li>
+<li><strong>Feature Preparation:</strong> Verify that <code>rating</code>, <code>discount_percent</code>, and <code>quantity</code> are stored as numeric variables for analysis.</li>
+<li><strong>Feature Engineering:</strong> Create customer satisfaction groups (<em>Low, Medium, High</em>) using <code>case_when()</code> to support exploratory analysis and visualization.</li>
+</ol>
+</section></section>
+<section>
+<section id="ro2-plan-for-data-visualization" class="title-slide slide level1 center">
+<h1>RO2: Plan for Data Visualization</h1>
+
+</section>
+<section id="visualizing-customer-satisfaction-with-ggplot2" class="slide level2">
+<h2>Visualizing Customer Satisfaction with <code>ggplot2</code></h2>
+<p>We will create exploratory visualizations to better understand the factors influencing customer satisfaction:</p>
+<ul>
+<li><strong>Customer Ratings by Product Category:</strong> A <code>geom_col()</code> bar chart displaying average customer ratings across product categories.</li>
+<li><strong>Traffic Source Comparison:</strong> A <code>geom_boxplot()</code> comparing customer rating distributions across different marketing channels.</li>
+<li><strong>Discount vs.&nbsp;Rating:</strong> A <code>geom_point(alpha = 0.4)</code> scatter plot with <code>geom_smooth(method = "lm")</code> to evaluate the relationship between discount percentages and customer ratings.</li>
+<li><strong>Customer Satisfaction Heatmap:</strong> A heatmap summarizing average customer ratings across combinations of product categories and traffic sources.</li>
+</ul>
+</section></section>
 <section>
 <section id="ro3-returns-profitability-analysis-brian" class="title-slide slide level1 center">
 <h1>RO3: Returns &amp; Profitability Analysis (Brian)</h1>
@@ -292,7 +437,7 @@
 <h1>RO3: IV’s and DV’s</h1>
 
 </section>
-<section id="variables-matrix" class="slide level2">
+<section id="variables-matrix-1" class="slide level2">
 <h2>Variables Matrix</h2>
 <p>We will isolate operational metrics and customer behavior variables within our R environment to predict return risks.</p>
 <table class="caption-top">
@@ -349,7 +494,7 @@
 <h1>RO3: Plan for Data Wrangling</h1>
 
 </section>
-<section id="data-processing-pipeline-in-r" class="slide level2 scrollable">
+<section id="data-processing-pipeline-in-r-1" class="slide level2 scrollable">
 <h2>Data Processing Pipeline in R</h2>
 <p>Using the <code>tidyverse</code> suite (primarily <code>dplyr</code> and <code>lubridate</code>), we will transform the raw Shopify data:</p>
 <ol type="1">

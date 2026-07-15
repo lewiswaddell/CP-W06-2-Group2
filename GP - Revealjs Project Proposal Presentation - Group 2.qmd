@@ -61,17 +61,92 @@ Kaggle notes the dataset is "realistic," presumably meaning transactions are not
 
 # Sampling Data Collection
 
-enter text
+## Data Source
+
+- Secondary data obtained from the Shopify Sales Dataset for ML & EDA available on Kaggle.
+- Dataset contains **60,000 Shopify e-commerce orders** collected between **January 2023 and June 2025**.
+- Each observation represents one completed customer order.
+- The dataset includes customer behavior, product information, transaction details, ratings, returns, marketing channels, and financial performance metrics.
+- Because this is an existing dataset, no primary data collection or customer surveys are required.
 
 # Data Wrangling
 
-enter text
+## Data Preparation Plan
+
+Using the **tidyverse** package in R, we will prepare the dataset before analysis by:
+
+1. Converting `order_date` into a Date format for time-based analysis.
+2. Checking for missing values and duplicate observations.
+3. Converting categorical variables such as `product_category`, `traffic_source`, `customer_country`, `payment_method`, and `is_returned` into factors.
+4. Verifying numeric variables such as `rating`, `profit`, `revenue`, and `discount_percent` are stored correctly.
+5. Creating additional variables when needed to support each research objective.enter text
 
 # R01
 
 enter text
 
-# R02:
+# RO2: Customer Satisfaction Analysis (Alexa)
+
+## RO2: Research Objective
+
+> **Objective:** Identify which customer and transaction characteristics contribute to higher customer satisfaction by examining how product categories, traffic sources, discount levels, and purchasing behavior influence customer `rating`.
+
+-   **The Hypothesis:** Customers who purchase through **Organic** or **Direct** traffic sources, receive moderate discounts, and purchase from higher-rated product categories will report higher customer satisfaction scores (`rating`) than customers acquired through paid channels or heavily discounted purchases.
+
+-   **Key Customer Satisfaction Indicators:**
+    -   Overall customer `rating` following a purchase.
+    -   Product categories associated with higher customer satisfaction.
+    -   Traffic sources that generate more satisfied customers.
+    -   The relationship between promotional discounts and customer satisfaction.
+
+## RO2: Methodology & Statistical Modeling
+
+-   **Analytical Approach in R:**
+    -   Perform **Exploratory Data Analysis (EDA)** using the **tidyverse** package to summarize customer satisfaction across products, marketing channels, and purchasing behaviors.
+    -   Fit a **Multiple Linear Regression Model** using the baseline `lm()` function to determine which customer and transaction characteristics significantly influence customer `rating`.
+    -   Use the `broom` package to organize regression coefficients, confidence intervals, and statistical significance for interpretation.
+
+-   **Model Validation:**
+    -   Examine residual plots to verify regression assumptions.
+    -   Evaluate overall model performance using **R²** and **Adjusted R²**.
+    -   Identify statistically significant predictors through p-values and confidence intervals.
+
+# RO2: IV's and DV's
+
+## Variables Matrix
+
+We will examine customer satisfaction by modeling customer ratings as the outcome while evaluating transaction and marketing characteristics as predictors.
+
+| Variable Name | Variable Role | Data Type | Description |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| **`rating`** | **Dependent Variable (DV)** | Numeric / Continuous | Customer satisfaction score ranging from 1 to 5 stars. |
+| **`product_category`** | Independent Variable (IV) | Categorical / Factor | Product category purchased by the customer. |
+| **`traffic_source`** | Independent Variable (IV) | Categorical / Factor | Marketing channel responsible for generating the purchase. |
+| **`discount_percent`** | Independent Variable (IV) | Numeric / Continuous | Percentage discount applied to the customer's order. |
+| **`quantity`** | Independent Variable (IV) | Numeric / Continuous | Number of items purchased within the transaction. |
+
+# RO2: Plan for Data Wrangling
+
+## Data Processing Pipeline in R
+
+Using the **tidyverse** suite (primarily `dplyr` and `lubridate`), we will prepare the Shopify dataset before analysis by:
+
+1.  **Date Parsing:** Convert `order_date` into a date format using `ymd()` for time-based analysis.
+2.  **Data Cleaning:** Check for missing values and duplicate observations to ensure data quality.
+3.  **Variable Conversion:** Convert `product_category` and `traffic_source` into factors using `as.factor()` for statistical modeling.
+4.  **Feature Preparation:** Verify that `rating`, `discount_percent`, and `quantity` are stored as numeric variables for analysis.
+5.  **Feature Engineering:** Create customer satisfaction groups (*Low, Medium, High*) using `case_when()` to support exploratory analysis and visualization.
+
+# RO2: Plan for Data Visualization
+
+## Visualizing Customer Satisfaction with `ggplot2`
+
+We will create exploratory visualizations to better understand the factors influencing customer satisfaction:
+
+-   **Customer Ratings by Product Category:** A `geom_col()` bar chart displaying average customer ratings across product categories.
+-   **Traffic Source Comparison:** A `geom_boxplot()` comparing customer rating distributions across different marketing channels.
+-   **Discount vs. Rating:** A `geom_point(alpha = 0.4)` scatter plot with `geom_smooth(method = "lm")` to evaluate the relationship between discount percentages and customer ratings.
+-   **Customer Satisfaction Heatmap:** A heatmap summarizing average customer ratings across combinations of product categories and traffic sources.
 
 # RO3: Returns & Profitability Analysis (Brian)
 
