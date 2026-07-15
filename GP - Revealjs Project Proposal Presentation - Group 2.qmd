@@ -92,6 +92,15 @@ enter text
 -   **Data Integrity & Quality Check:**
     -   Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
 
+## Tidying the Data
+
+enter text
+
+## Transforming the Data
+
+enter text
+
+
 # RO1: Marketing Channels & Average Order Value
 
 ## Research Objective
