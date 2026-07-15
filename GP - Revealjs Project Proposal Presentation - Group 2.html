@@ -171,9 +171,13 @@
 <p>enter text</p>
 </section>
 
+<section>
 <section id="population" class="title-slide slide level1 center">
 <h1>Population</h1>
-<p>Shopify e-commerce orders from January 2023 to June 2025</p>
+
+</section>
+<section id="shopify-e-commerce-orders-from-january-2023-to-june-2025" class="slide level2">
+<h2>Shopify e-commerce orders from January 2023 to June 2025</h2>
 <ul>
 <li><p><strong>Unit of analysis:</strong> Individual order (n = 60,000)</p></li>
 <li><p>31,154 unique customers | 6,998 unique products</p></li>
@@ -182,13 +186,13 @@
 <table class="caption-top">
 <colgroup>
 <col style="width: 12%">
-<col style="width: 13%">
 <col style="width: 12%">
 <col style="width: 12%">
 <col style="width: 12%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -227,8 +231,7 @@
 </div>
 </div>
 </div>
-</section>
-
+</section></section>
 <section id="sampling-data-collection" class="title-slide slide level1 center">
 <h1>Sampling Data Collection</h1>
 <p>enter text</p>
@@ -571,12 +574,17 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 8.0e-2,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 2,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',

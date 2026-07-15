@@ -8,6 +8,11 @@ format:
     slide-number: true
     scrollable: true
     controls: true
+    width: 1280
+    height: 720
+    margin: 0.08
+    min-scale: 0.2
+    max-scale: 2.0
 footer: "IBM6540 | July 15, 2026"
 ---
 
@@ -35,7 +40,7 @@ enter text
 
 # Population
 
-Shopify e-commerce orders from January 2023 to June 2025
+## Shopify e-commerce orders from January 2023 to June 2025
 
 -   **Unit of analysis:** Individual order (n = 60,000)
 
@@ -44,7 +49,7 @@ Shopify e-commerce orders from January 2023 to June 2025
 -   **Scope limit:** Findings generalize only to these countries, categories, and date range
 
 |              |             |        |             |          |        |         |            |
-|---------|----------|---------|---------|---------|---------|---------|----------|
+|---------|---------|---------|---------|---------|---------|---------|---------|
 | **Country**  | USA         | UAE    | CAN         | UK       | IND    | GER     | AUS        |
 | **Category** | Accessories | Sports | Electronics | Footwear | Beauty | Fashion | Home Decor |
 
