@@ -6,8 +6,8 @@
 <script src="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Group 2:   Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell,   Ron Stephen Sabilla, Brian Vuong">
   <title>GP - Project Proposal Presentation</title>
@@ -17,9 +17,6 @@
   <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/theme/quarto-e7fae955c581777a40040bc55438a75a.css">
+  <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/theme/quarto-1945fb974cec117259008fbf8a668806.css">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -169,11 +166,30 @@
 <p>enter text</p>
 </section>
 
+<section>
 <section id="importance-of-the-topic" class="title-slide slide level1 center">
 <h1>Importance of the Topic</h1>
-<p>enter text</p>
-</section>
 
+</section>
+<section id="why-this-research-matters" class="slide level2">
+<h2>Why This Research Matters</h2>
+<ul>
+<li>Online retailers invest heavily in customer acquisition, but not every marketing channel generates equally valuable customers.</li>
+<li>Discounts can increase sales, but excessive discounting may reduce profitability.</li>
+<li>Understanding how acquisition channels and discount levels influence customer value helps businesses make more effective marketing decisions.</li>
+<li>Predictive models allow retailers to identify future high-value customers and improve marketing performance.</li>
+</ul>
+</section>
+<section id="practical-applications" class="slide level2">
+<h2>Practical Applications</h2>
+<ul>
+<li>Prioritize higher-performing acquisition channels.</li>
+<li>Optimize discount strategies to improve profitability.</li>
+<li>Reduce unnecessary marketing expenses.</li>
+<li>Improve customer targeting and retention.</li>
+<li>Support data-driven business decision making.</li>
+</ul>
+</section></section>
 <section>
 <section id="population" class="title-slide slide level1 center">
 <h1>Population</h1>
@@ -270,11 +286,64 @@
 </ul></li>
 </ul>
 </section></section>
-<section id="r01" class="title-slide slide level1 center">
-<h1>R01</h1>
-<p>enter text</p>
-</section>
+<section>
+<section id="ro1-marketing-channels-average-order-value" class="title-slide slide level1 center">
+<h1>RO1: Marketing Channels &amp; Average Order Value</h1>
 
+</section>
+<section id="research-objective" class="slide level2">
+<h2>Research Objective</h2>
+<blockquote>
+<p><strong>Objective:</strong> Determine which marketing traffic source generates the highest average order value and whether this relationship differs across product categories.</p>
+</blockquote>
+<h3 id="independent-variables-iv">Independent Variables (IV)</h3>
+<ul>
+<li><strong>Traffic Source:</strong> Paid Ads, Email, Direct, Social Media, Organic</li>
+<li><strong>Product Category (Moderator):</strong> Accessories, Sports, Electronics, Footwear, Beauty, Fashion, Home Decor</li>
+</ul>
+<h3 id="dependent-variable-dv">Dependent Variable (DV)</h3>
+<ul>
+<li><strong>Average Order Value (Revenue per Order)</strong></li>
+</ul>
+</section></section>
+<section>
+<section id="ro1-plan-for-data-wrangling" class="title-slide slide level1 center">
+<h1>RO1: Plan for Data Wrangling</h1>
+
+</section>
+<section id="data-preparation" class="slide level2">
+<h2>Data Preparation</h2>
+<h3 id="from-records-to-data-1">From Records to Data</h3>
+<ul>
+<li>The dataset is already structured with one row representing one customer order.</li>
+<li>No aggregation from line-item transactions is required.</li>
+</ul>
+<h3 id="tidying-the-data">Tidying the Data</h3>
+<ul>
+<li>Verify there are no missing values in the traffic source, product category, and revenue variables.</li>
+<li>Confirm category and traffic source labels are consistent across all records.</li>
+</ul>
+<h3 id="transforming-the-data">Transforming the Data</h3>
+<ul>
+<li>Group transactions by traffic source and calculate the average order value for each channel.</li>
+<li>Group transactions by traffic source and product category to calculate the average order value for each combination.</li>
+<li>Perform a <strong>one-way ANOVA</strong> to compare average order values across traffic sources.</li>
+<li>Perform a <strong>two-way ANOVA</strong> to evaluate the interaction between traffic source and product category.</li>
+</ul>
+</section></section>
+<section>
+<section id="ro1-plan-for-data-visualization" class="title-slide slide level1 center">
+<h1>RO1: Plan for Data Visualization</h1>
+
+</section>
+<section id="visualizing-marketing-performance" class="slide level2">
+<h2>Visualizing Marketing Performance</h2>
+<ul>
+<li><strong>Bar Chart:</strong> Average order value by traffic source.</li>
+<li><strong>Faceted Bar Chart:</strong> Average order value by traffic source across product categories.</li>
+<li><strong>Boxplot:</strong> Distribution of order values by traffic source to identify variability and potential outliers.</li>
+</ul>
+</section></section>
 <section id="r02" class="title-slide slide level1 center">
 <h1>R02:</h1>
 
@@ -446,11 +515,130 @@
 <section id="plan-for-data-visualization" class="slide level2">
 <h2>Plan for Data Visualization</h2>
 </section></section>
-<section id="r05" class="title-slide slide level1 center">
-<h1>R05</h1>
-<p>enter text</p>
-</section>
+<section>
+<section id="ro5-sales-trends-and-seasonality" class="title-slide slide level1 center">
+<h1>RO5: Sales Trends and Seasonality</h1>
 
+</section>
+<section id="research-objective-1" class="slide level2">
+<h2>Research Objective</h2>
+<blockquote>
+<p><strong>Objective:</strong> Determine how sales performance changes over time and whether seasonal patterns differ across product categories.</p>
+</blockquote>
+<h3 id="hypothesis">Hypothesis</h3>
+<ul>
+<li>Revenue and order volume will vary across months and quarters.</li>
+<li>Seasonal sales patterns will differ by product category.</li>
+<li>Identifying peak sales periods can help improve inventory planning, promotions, and marketing strategies.</li>
+</ul>
+</section></section>
+<section>
+<section id="ro5-ivs-and-dvs" class="title-slide slide level1 center">
+<h1>RO5: IV’s and DV’s</h1>
+
+</section>
+<section id="variables-matrix-1" class="slide level2">
+<h2>Variables Matrix</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Variable Role</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>order_month</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Categorical / Ordered</td>
+<td style="text-align: left;">Month in which the transaction occurred.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>order_quarter</code></strong></td>
+<td style="text-align: left;">Independent Variable (IV)</td>
+<td style="text-align: left;">Categorical / Ordered</td>
+<td style="text-align: left;">Quarter in which the transaction occurred.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>product_category</code></strong></td>
+<td style="text-align: left;">Independent Variable / Moderator</td>
+<td style="text-align: left;">Categorical / Factor</td>
+<td style="text-align: left;">Product category associated with the transaction.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>revenue</code></strong></td>
+<td style="text-align: left;">Dependent Variable (DV)</td>
+<td style="text-align: left;">Numeric / Continuous</td>
+<td style="text-align: left;">Revenue generated from each transaction.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>quantity</code></strong></td>
+<td style="text-align: left;">Dependent Variable (DV)</td>
+<td style="text-align: left;">Numeric / Discrete</td>
+<td style="text-align: left;">Number of items purchased in each transaction.</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="ro5-plan-for-data-wrangling" class="title-slide slide level1 center">
+<h1>RO5: Plan for Data Wrangling</h1>
+
+</section>
+<section id="from-records-to-data-2" class="slide level2">
+<h2>From Records to Data</h2>
+<ul>
+<li>Use the existing transaction-level dataset, where each row represents one order.</li>
+<li>Convert <code>order_date</code> into a proper date variable using <code>ymd()</code>.</li>
+</ul>
+</section>
+<section id="tidying-the-data-1" class="slide level2">
+<h2>Tidying the Data</h2>
+<ul>
+<li>Confirm that <code>order_date</code>, <code>revenue</code>, <code>quantity</code>, and <code>product_category</code> contain valid values.</li>
+<li>Convert <code>product_category</code> into a factor.</li>
+<li>Verify that revenue and quantity are stored as numeric variables.</li>
+</ul>
+</section>
+<section id="transforming-the-data-1" class="slide level2">
+<h2>Transforming the Data</h2>
+<ul>
+<li>Extract month, quarter, and year from <code>order_date</code>.</li>
+<li>Group transactions by month and calculate total revenue, average revenue, and order volume.</li>
+<li>Group transactions by month and product category to compare seasonal patterns.</li>
+<li>Calculate monthly percentage changes in revenue and quantity.</li>
+</ul>
+</section></section>
+<section>
+<section id="ro5-plan-for-data-visualization" class="title-slide slide level1 center">
+<h1>RO5: Plan for Data Visualization</h1>
+
+</section>
+<section id="visualizing-sales-trends" class="slide level2">
+<h2>Visualizing Sales Trends</h2>
+<ul>
+<li><strong>Line Chart:</strong> Monthly revenue over time.</li>
+<li><strong>Line Chart:</strong> Monthly order volume over time.</li>
+<li><strong>Faceted Line Chart:</strong> Revenue trends by product category.</li>
+<li><strong>Heatmap:</strong> Monthly revenue across product categories.</li>
+<li><strong>Bar Chart:</strong> Average quarterly revenue.</li>
+</ul>
+</section>
+<section id="proposed-statistical-analysis" class="slide level2">
+<h2>Proposed Statistical Analysis</h2>
+<ul>
+<li>Use a one-way ANOVA to test whether average revenue differs across quarters.</li>
+<li>Use a two-way ANOVA to examine the interaction between quarter and product category.</li>
+</ul>
+</section></section>
 <section id="conclusion" class="title-slide slide level1 center">
 <h1>Conclusion</h1>
 <p>enter text</p>
