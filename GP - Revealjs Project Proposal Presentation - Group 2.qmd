@@ -71,9 +71,7 @@ enter text
 
 enter text
 
-# R02: Lee
-
-enter text
+# R02:
 
 # RO3: Returns & Profitability Analysis (Brian)
 
@@ -134,9 +132,15 @@ We will engineer publication-ready exploratory graphics using R's `ggplot2` fram
 -   **Rating Distribution vs. Returns:** Parallel boxplots via `geom_boxplot()` mapping the distribution of customer `rating` scores against the binary `is_returned` factor levels.
 -   **Geographic Breakdown:** A faceted horizontal bar plot using `facet_wrap(~customer_country)` to observe which regions bear the highest shipping costs on returned items.
 
-# R04
+# RO4
 
-enter text
+Do repeat customers represent a lower-cost, higher-margin path to revenue than acquiring new customers, allowing the business to rely on retention instead of paid acquisition to protect margins?
+
+## IV's and DV's
+
+## Plan for Data Wrangling
+
+## Plan for Data Visualization
 
 # R05
 
