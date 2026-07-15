@@ -38,18 +38,18 @@ enter text
 
 ## Why This Research Matters
 
-- Online retailers invest heavily in customer acquisition, but not every marketing channel generates equally valuable customers.
-- Discounts can increase sales, but excessive discounting may reduce profitability.
-- Understanding how acquisition channels and discount levels influence customer value helps businesses make more effective marketing decisions.
-- Predictive models allow retailers to identify future high-value customers and improve marketing performance.
+-   Online retailers invest heavily in customer acquisition, but not every marketing channel generates equally valuable customers.
+-   Discounts can increase sales, but excessive discounting may reduce profitability.
+-   Understanding how acquisition channels and discount levels influence customer value helps businesses make more effective marketing decisions.
+-   Predictive models allow retailers to identify future high-value customers and improve marketing performance.
 
 ## Practical Applications
 
-- Prioritize higher-performing acquisition channels.
-- Optimize discount strategies to improve profitability.
-- Reduce unnecessary marketing expenses.
-- Improve customer targeting and retention.
-- Support data-driven business decision making.
+-   Prioritize higher-performing acquisition channels.
+-   Optimize discount strategies to improve profitability.
+-   Reduce unnecessary marketing expenses.
+-   Improve customer targeting and retention.
+-   Support data-driven business decision making.
 
 # Population
 
@@ -81,15 +81,16 @@ enter text
 # Data Wrangling: From Records to Data
 
 ## From Records to Data
-* **Data Ingestion:** Reading the raw, structured transaction records directly from the `shopify_sales_dataset_ml_eda.csv` file into R using `read_csv()`.
-* **Dataset Shape & Dimensions:**
-  * **60,000** unique historical transaction records.
-  * **17** distinct variable attributes capturing customer, financial, and logistical behaviors.
-* **Initial Schema Assessment:**
-  * Identifying numerical/continuous identifiers (`product_price`, `shipping_cost`, `revenue`, `profit`).
-  * Identifying categorical text features (`product_category`, `customer_country`, `traffic_source`, `payment_method`).
-* **Data Integrity & Quality Check:** 
-  * Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
+
+-   **Data Ingestion:** Reading the raw, structured transaction records directly from the `shopify_sales_dataset_ml_eda.csv` file into R using `read_csv()`.
+-   **Dataset Shape & Dimensions:**
+    -   **60,000** unique historical transaction records.
+    -   **17** distinct variable attributes capturing customer, financial, and logistical behaviors.
+-   **Initial Schema Assessment:**
+    -   Identifying numerical/continuous identifiers (`product_price`, `shipping_cost`, `revenue`, `profit`).
+    -   Identifying categorical text features (`product_category`, `customer_country`, `traffic_source`, `payment_method`).
+-   **Data Integrity & Quality Check:**
+    -   Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
 
 # RO1: Marketing Channels & Average Order Value
 
@@ -99,12 +100,12 @@ enter text
 
 ### Independent Variables (IV)
 
-- **Traffic Source:** Paid Ads, Email, Direct, Social Media, Organic
-- **Product Category (Moderator):** Accessories, Sports, Electronics, Footwear, Beauty, Fashion, Home Decor
+-   **Traffic Source:** Paid Ads, Email, Direct, Social Media, Organic
+-   **Product Category (Moderator):** Accessories, Sports, Electronics, Footwear, Beauty, Fashion, Home Decor
 
 ### Dependent Variable (DV)
 
-- **Average Order Value (Revenue per Order)**
+-   **Average Order Value (Revenue per Order)**
 
 # RO1: Plan for Data Wrangling
 
@@ -112,28 +113,28 @@ enter text
 
 ### From Records to Data
 
-- The dataset is already structured with one row representing one customer order.
-- No aggregation from line-item transactions is required.
+-   The dataset is already structured with one row representing one customer order.
+-   No aggregation from line-item transactions is required.
 
 ### Tidying the Data
 
-- Verify there are no missing values in the traffic source, product category, and revenue variables.
-- Confirm category and traffic source labels are consistent across all records.
+-   Verify there are no missing values in the traffic source, product category, and revenue variables.
+-   Confirm category and traffic source labels are consistent across all records.
 
 ### Transforming the Data
 
-- Group transactions by traffic source and calculate the average order value for each channel.
-- Group transactions by traffic source and product category to calculate the average order value for each combination.
-- Perform a **one-way ANOVA** to compare average order values across traffic sources.
-- Perform a **two-way ANOVA** to evaluate the interaction between traffic source and product category.
+-   Group transactions by traffic source and calculate the average order value for each channel.
+-   Group transactions by traffic source and product category to calculate the average order value for each combination.
+-   Perform a **one-way ANOVA** to compare average order values across traffic sources.
+-   Perform a **two-way ANOVA** to evaluate the interaction between traffic source and product category.
 
 # RO1: Plan for Data Visualization
 
 ## Visualizing Marketing Performance
 
-- **Bar Chart:** Average order value by traffic source.
-- **Faceted Bar Chart:** Average order value by traffic source across product categories.
-- **Boxplot:** Distribution of order values by traffic source to identify variability and potential outliers.
+-   **Bar Chart:** Average order value by traffic source.
+-   **Faceted Bar Chart:** Average order value by traffic source across product categories.
+-   **Boxplot:** Distribution of order values by traffic source to identify variability and potential outliers.
 
 # R02:
 
@@ -196,11 +197,15 @@ We will engineer publication-ready exploratory graphics using R's `ggplot2` fram
 -   **Rating Distribution vs. Returns:** Parallel boxplots via `geom_boxplot()` mapping the distribution of customer `rating` scores against the binary `is_returned` factor levels.
 -   **Geographic Breakdown:** A faceted horizontal bar plot using `facet_wrap(~customer_country)` to observe which regions bear the highest shipping costs on returned items.
 
-# RO4
+# RO4: Profit Impact of Customer Retention
 
-Do repeat customers represent a lower-cost, higher-margin path to revenue than acquiring new customers, allowing the business to rely on retention instead of paid acquisition to protect margins?
+## RO4: Research Objective
 
-## IV's and DV's
+> **Objective:** Determine whether repeat customers are a more margin-efficient growth channel than new customer acquisition
+
+-   **The Hypothesis:** Repeat customers are a more margin-efficient growth channel than new customer acquisition, generating higher cumulative profit and lower return rates than one-time customers, and are disproportionately acquired through lower-cost channels (Organic, Direct, Email) rather than paid channels (Paid Ads, Social Media).
+
+## RO4 IV's and DV's
 
 ### Independent Variables
 
@@ -226,11 +231,25 @@ Do repeat customers represent a lower-cost, higher-margin path to revenue than a
 
     -   number of orders per customer (proxy for retention)
 
-## Plan for Data Wrangling
+## RO4 Plan for Data Wrangling
 
-## Plan for Data Visualization
+### Data Processing Pipeline in R
 
-# RO5: Sales Trends and Seasonality
+1.  **Aggregate** transactions to customer level `group_by(customer_id)\`
+2.  **Derive**: `is_repeat` (2+ orders), `cumulative_profit`, `customer_return_rate`
+3.  **Extract** each customer's first order → `first_order_channel` (acquisition source)
+4.  **Recode** channel into Paid (Ads/Social) vs. Organic/Low-cost (Organic/Direct/Email)
+5.  **QA**: parse dates, check duplicates, confirm class balance (repeat vs. one-time)
+
+## RO4 Plan for Data Visualization
+
+> To evaluate whether repeat customers are a more margin-efficient growth channel, we will visualize the relationship between retention, profit, and acquisition channel:
+
+-   **Bar Chart:** Cumulative profit
+
+-   **Stacked Bar Chart:** First-order channel mix (Paid vs. Organic/Low-cost)
+
+-   **Boxplot:** Return rate distributionRO5: Sales Trends and Seasonality
 
 ## Research Objective
 
@@ -238,16 +257,16 @@ Do repeat customers represent a lower-cost, higher-margin path to revenue than a
 
 ### Hypothesis
 
-- Revenue and order volume will vary across months and quarters.
-- Seasonal sales patterns will differ by product category.
-- Identifying peak sales periods can help improve inventory planning, promotions, and marketing strategies.
+-   Revenue and order volume will vary across months and quarters.
+-   Seasonal sales patterns will differ by product category.
+-   Identifying peak sales periods can help improve inventory planning, promotions, and marketing strategies.
 
 # RO5: IV's and DV's
 
 ## Variables Matrix
 
 | Variable Name | Variable Role | Data Type | Description |
-| :--- | :--- | :--- | :--- |
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **`order_month`** | Independent Variable (IV) | Categorical / Ordered | Month in which the transaction occurred. |
 | **`order_quarter`** | Independent Variable (IV) | Categorical / Ordered | Quarter in which the transaction occurred. |
 | **`product_category`** | Independent Variable / Moderator | Categorical / Factor | Product category associated with the transaction. |
@@ -258,36 +277,36 @@ Do repeat customers represent a lower-cost, higher-margin path to revenue than a
 
 ## From Records to Data
 
-- Use the existing transaction-level dataset, where each row represents one order.
-- Convert `order_date` into a proper date variable using `ymd()`.
+-   Use the existing transaction-level dataset, where each row represents one order.
+-   Convert `order_date` into a proper date variable using `ymd()`.
 
 ## Tidying the Data
 
-- Confirm that `order_date`, `revenue`, `quantity`, and `product_category` contain valid values.
-- Convert `product_category` into a factor.
-- Verify that revenue and quantity are stored as numeric variables.
+-   Confirm that `order_date`, `revenue`, `quantity`, and `product_category` contain valid values.
+-   Convert `product_category` into a factor.
+-   Verify that revenue and quantity are stored as numeric variables.
 
 ## Transforming the Data
 
-- Extract month, quarter, and year from `order_date`.
-- Group transactions by month and calculate total revenue, average revenue, and order volume.
-- Group transactions by month and product category to compare seasonal patterns.
-- Calculate monthly percentage changes in revenue and quantity.
+-   Extract month, quarter, and year from `order_date`.
+-   Group transactions by month and calculate total revenue, average revenue, and order volume.
+-   Group transactions by month and product category to compare seasonal patterns.
+-   Calculate monthly percentage changes in revenue and quantity.
 
 # RO5: Plan for Data Visualization
 
 ## Visualizing Sales Trends
 
-- **Line Chart:** Monthly revenue over time.
-- **Line Chart:** Monthly order volume over time.
-- **Faceted Line Chart:** Revenue trends by product category.
-- **Heatmap:** Monthly revenue across product categories.
-- **Bar Chart:** Average quarterly revenue.
+-   **Line Chart:** Monthly revenue over time.
+-   **Line Chart:** Monthly order volume over time.
+-   **Faceted Line Chart:** Revenue trends by product category.
+-   **Heatmap:** Monthly revenue across product categories.
+-   **Bar Chart:** Average quarterly revenue.
 
 ## Proposed Statistical Analysis
 
-- Use a one-way ANOVA to test whether average revenue differs across quarters.
-- Use a two-way ANOVA to examine the interaction between quarter and product category.
+-   Use a one-way ANOVA to test whether average revenue differs across quarters.
+-   Use a two-way ANOVA to examine the interaction between quarter and product category.
 
 # Conclusion
 

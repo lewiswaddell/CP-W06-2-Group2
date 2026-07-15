@@ -204,14 +204,14 @@
 </ul>
 <table class="caption-top">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 13%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -476,12 +476,21 @@
 </ul>
 </section></section>
 <section>
-<section id="ro4" class="title-slide slide level1 center">
-<h1>RO4</h1>
-<p>Do repeat customers represent a lower-cost, higher-margin path to revenue than acquiring new customers, allowing the business to rely on retention instead of paid acquisition to protect margins?</p>
+<section id="ro4-profit-impact-of-customer-retention" class="title-slide slide level1 center">
+<h1>RO4: Profit Impact of Customer Retention</h1>
+
 </section>
-<section id="ivs-and-dvs" class="slide level2">
-<h2>IV’s and DV’s</h2>
+<section id="ro4-research-objective" class="slide level2">
+<h2>RO4: Research Objective</h2>
+<blockquote>
+<p><strong>Objective:</strong> Determine whether repeat customers are a more margin-efficient growth channel than new customer acquisition</p>
+</blockquote>
+<ul>
+<li><strong>The Hypothesis:</strong> Repeat customers are a more margin-efficient growth channel than new customer acquisition, generating higher cumulative profit and lower return rates than one-time customers, and are disproportionately acquired through lower-cost channels (Organic, Direct, Email) rather than paid channels (Paid Ads, Social Media).</li>
+</ul>
+</section>
+<section id="ro4-ivs-and-dvs" class="slide level2">
+<h2>RO4 IV’s and DV’s</h2>
 <h3 id="independent-variables">Independent Variables</h3>
 <ul>
 <li><p><code>is_repeat</code></p>
@@ -509,13 +518,42 @@
 </ul></li>
 </ul>
 </section>
-<section id="plan-for-data-wrangling" class="slide level2">
-<h2>Plan for Data Wrangling</h2>
+<section id="ro4-plan-for-data-wrangling" class="slide level2 scrollable">
+<h2>RO4 Plan for Data Wrangling</h2>
+<h3 id="data-processing-pipeline-in-r-1">Data Processing Pipeline in R</h3>
+<ol type="1">
+<li><strong>Aggregate</strong> transactions to customer level <code>group_by(customer_id)\</code></li>
+<li><strong>Derive</strong>: <code>is_repeat</code> (2+ orders), <code>cumulative_profit</code>, <code>customer_return_rate</code></li>
+<li><strong>Extract</strong> each customer’s first order → <code>first_order_channel</code> (acquisition source)</li>
+<li><strong>Recode</strong> channel into Paid (Ads/Social) vs.&nbsp;Organic/Low-cost (Organic/Direct/Email)</li>
+<li><strong>QA</strong>: parse dates, check duplicates, confirm class balance (repeat vs.&nbsp;one-time)</li>
+</ol>
 </section>
-<section id="plan-for-data-visualization" class="slide level2">
-<h2>Plan for Data Visualization</h2>
+<section id="ro4-plan-for-data-visualization" class="slide level2">
+<h2>RO4 Plan for Data Visualization</h2>
+<blockquote>
+<p>To evaluate whether repeat customers are a more margin-efficient growth channel, we will visualize the relationship between retention, profit, and acquisition channel:</p>
+</blockquote>
+<ul>
+<li><p><strong>Bar Chart:</strong> Cumulative profit</p></li>
+<li><p><strong>Stacked Bar Chart:</strong> First-order channel mix (Paid vs.&nbsp;Organic/Low-cost)</p></li>
+<li><p><strong>Boxplot:</strong> Return rate distributionRO5: Sales Trends and Seasonality</p></li>
+</ul>
+</section>
+<section id="research-objective-1" class="slide level2">
+<h2>Research Objective</h2>
+<blockquote>
+<p><strong>Objective:</strong> Determine how sales performance changes over time and whether seasonal patterns differ across product categories.</p>
+</blockquote>
+<h3 id="hypothesis">Hypothesis</h3>
+<ul>
+<li>Revenue and order volume will vary across months and quarters.</li>
+<li>Seasonal sales patterns will differ by product category.</li>
+<li>Identifying peak sales periods can help improve inventory planning, promotions, and marketing strategies.</li>
+</ul>
 </section></section>
 <section>
+<<<<<<< Updated upstream
 <section id="ro5-sales-trends-and-seasonality" class="title-slide slide level1 center">
 <h1>RO5: Sales Trends and Seasonality</h1>
 
@@ -537,6 +575,12 @@
 <h1>RO5: IV’s and DV’s</h1>
 
 </section>
+=======
+<section id="ro5-ivs-and-dvs" class="title-slide slide level1 center">
+<h1>RO5: IV’s and DV’s</h1>
+
+</section>
+>>>>>>> Stashed changes
 <section id="variables-matrix-1" class="slide level2">
 <h2>Variables Matrix</h2>
 <table class="caption-top">
