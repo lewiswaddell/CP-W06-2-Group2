@@ -58,7 +58,7 @@ footer: "IBM6540 | July 15, 2026"
 -   **Scope limit:** Findings generalize only to these countries, categories, and date range
 
 |              |             |        |             |          |        |         |            |
-|---------|---------|---------|---------|---------|---------|---------|---------|
+|--------------|-------------|--------|-------------|----------|--------|---------|------------|
 | **Country**  | USA         | UAE    | CAN         | UK       | IND    | GER     | AUS        |
 | **Category** | Accessories | Sports | Electronics | Footwear | Beauty | Fashion | Home Decor |
 
@@ -108,12 +108,11 @@ Using the **tidyverse** package in R, we will prepare the dataset before analysi
 
 ## Part 3: Transforming the Data
 
-1. Converting date and time variables into a consistent format for analysis.
-2. Creating calculated variables such as `total_sales`, `average_order_value`, and customer purchase metrics.
-3. Aggregating data by product, customer, and time period to support each research objective.
-4. Reshaping the data when necessary to improve analysis and visualization.
-5. Saving the transformed dataset for use in statistical analysis and data visualization.
-
+1.  Converting date and time variables into a consistent format for analysis.
+2.  Creating calculated variables such as `total_sales`, `average_order_value`, and customer purchase metrics.
+3.  Aggregating data by product, customer, and time period to support each research objective.
+4.  Reshaping the data when necessary to improve analysis and visualization.
+5.  Saving the transformed dataset for use in statistical analysis and data visualization.
 
 # RO1: Marketing Channels & Average Order Value
 
@@ -192,7 +191,7 @@ Using the **tidyverse** package in R, we will prepare the dataset before analysi
 We will examine customer satisfaction by modeling customer ratings as the outcome while evaluating transaction and marketing characteristics as predictors.
 
 | Variable Name | Variable Role | Data Type | Description |
-|:-----------------|:-----------------|:-----------------|:-----------------|
+|:---|:---|:---|:---|
 | **`rating`** | **Dependent Variable (DV)** | Numeric / Continuous | Customer satisfaction score ranging from 1 to 5 stars. |
 | **`product_category`** | Independent Variable (IV) | Categorical / Factor | Product category purchased by the customer. |
 | **`traffic_source`** | Independent Variable (IV) | Categorical / Factor | Marketing channel responsible for generating the purchase. |
@@ -250,7 +249,7 @@ We will create exploratory visualizations to better understand the factors influ
 We will isolate operational metrics and customer behavior variables within our R environment to predict return risks.
 
 | Variable Name | Variable Role | Data Type | Description |
-|:-----------------|:-----------------|:-----------------|:-----------------|
+|:---|:---|:---|:---|
 | **`is_returned`** | **Dependent Variable (DV)** | Binary Factor (0 or 1) | Represents whether the customer returned the product. |
 | **`product_category`** | Independent Variable (IV) | Categorical / Factor | The segment of the product purchased (*Fashion, Electronics, etc.*). |
 | **`discount_percent`** | Independent Variable (IV) | Numeric / Continuous | Percentage discount applied to the product. |
@@ -352,7 +351,7 @@ We will engineer publication-ready exploratory graphics using R's `ggplot2` fram
 ## Variables Matrix
 
 | Variable Name | Variable Role | Data Type | Description |
-|:-----------------|:-----------------|:-----------------|:-----------------|
+|:---|:---|:---|:---|
 | **`order_month`** | Independent Variable (IV) | Categorical / Ordered | Month in which the transaction occurred. |
 | **`order_quarter`** | Independent Variable (IV) | Categorical / Ordered | Quarter in which the transaction occurred. |
 | **`product_category`** | Independent Variable / Moderator | Categorical / Factor | Product category associated with the transaction. |
