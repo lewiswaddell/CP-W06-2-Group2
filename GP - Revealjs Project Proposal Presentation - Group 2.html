@@ -6,8 +6,8 @@
 <script src="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Group 2:   Kevin Bachez, Alexa Bueno, Leeann Lewis-Waddell,   Ron Stephen Sabilla, Brian Vuong">
   <title>GP - Project Proposal Presentation</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/theme/quarto-1945fb974cec117259008fbf8a668806.css">
+  <link rel="stylesheet" href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/dist/theme/quarto-e7fae955c581777a40040bc55438a75a.css">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="GP - Revealjs Project Proposal Presentation - Group 2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -239,9 +242,34 @@
 
 <section id="data-wrangling" class="title-slide slide level1 center">
 <h1>Data Wrangling</h1>
-<p>enter text</p>
+
 </section>
 
+<section>
+<section id="data-wrangling-from-records-to-data" class="title-slide slide level1 center">
+<h1>Data Wrangling: From Records to Data</h1>
+
+</section>
+<section id="from-records-to-data" class="slide level2">
+<h2>From Records to Data</h2>
+<ul>
+<li><strong>Data Ingestion:</strong> Reading the raw, structured transaction records directly from the <code>shopify_sales_dataset_ml_eda.csv</code> file into R using <code>read_csv()</code>.</li>
+<li><strong>Dataset Shape &amp; Dimensions:</strong>
+<ul>
+<li><strong>60,000</strong> unique historical transaction records.</li>
+<li><strong>17</strong> distinct variable attributes capturing customer, financial, and logistical behaviors.</li>
+</ul></li>
+<li><strong>Initial Schema Assessment:</strong>
+<ul>
+<li>Identifying numerical/continuous identifiers (<code>product_price</code>, <code>shipping_cost</code>, <code>revenue</code>, <code>profit</code>).</li>
+<li>Identifying categorical text features (<code>product_category</code>, <code>customer_country</code>, <code>traffic_source</code>, <code>payment_method</code>).</li>
+</ul></li>
+<li><strong>Data Integrity &amp; Quality Check:</strong>
+<ul>
+<li>Running <code>colSums(is.na(df))</code> confirms a pristine dataset with <strong>0 missing values</strong> across all 60,000 records. No initial imputation is required.</li>
+</ul></li>
+</ul>
+</section></section>
 <section id="r01" class="title-slide slide level1 center">
 <h1>R01</h1>
 <p>enter text</p>
@@ -253,8 +281,8 @@
 </section>
 
 <section>
-<section id="ro3-returns-profitability-analysis-brian" class="title-slide slide level1 center">
-<h1>RO3: Returns &amp; Profitability Analysis (Brian)</h1>
+<section id="ro3-returns-profitability-analysis" class="title-slide slide level1 center">
+<h1>RO3: Returns &amp; Profitability Analysis</h1>
 
 </section>
 <section id="ro3-research-objective" class="slide level2">
