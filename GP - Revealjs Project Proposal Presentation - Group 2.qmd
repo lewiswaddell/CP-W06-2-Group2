@@ -36,7 +36,20 @@ enter text
 
 # Importance of the Topic
 
-enter text
+## Why This Research Matters
+
+- Online retailers invest heavily in customer acquisition, but not every marketing channel generates equally valuable customers.
+- Discounts can increase sales, but excessive discounting may reduce profitability.
+- Understanding how acquisition channels and discount levels influence customer value helps businesses make more effective marketing decisions.
+- Predictive models allow retailers to identify future high-value customers and improve marketing performance.
+
+## Practical Applications
+
+- Prioritize higher-performing acquisition channels.
+- Optimize discount strategies to improve profitability.
+- Reduce unnecessary marketing expenses.
+- Improve customer targeting and retention.
+- Support data-driven business decision making.
 
 # Population
 
@@ -78,10 +91,49 @@ enter text
 * **Data Integrity & Quality Check:** 
   * Running `colSums(is.na(df))` confirms a pristine dataset with **0 missing values** across all 60,000 records. No initial imputation is required.
 
+# RO1: Marketing Channels & Average Order Value
 
-# R01
+## Research Objective
 
-enter text
+> **Objective:** Determine which marketing traffic source generates the highest average order value and whether this relationship differs across product categories.
+
+### Independent Variables (IV)
+
+- **Traffic Source:** Paid Ads, Email, Direct, Social Media, Organic
+- **Product Category (Moderator):** Accessories, Sports, Electronics, Footwear, Beauty, Fashion, Home Decor
+
+### Dependent Variable (DV)
+
+- **Average Order Value (Revenue per Order)**
+
+# RO1: Plan for Data Wrangling
+
+## Data Preparation
+
+### From Records to Data
+
+- The dataset is already structured with one row representing one customer order.
+- No aggregation from line-item transactions is required.
+
+### Tidying the Data
+
+- Verify there are no missing values in the traffic source, product category, and revenue variables.
+- Confirm category and traffic source labels are consistent across all records.
+
+### Transforming the Data
+
+- Group transactions by traffic source and calculate the average order value for each channel.
+- Group transactions by traffic source and product category to calculate the average order value for each combination.
+- Perform a **one-way ANOVA** to compare average order values across traffic sources.
+- Perform a **two-way ANOVA** to evaluate the interaction between traffic source and product category.
+
+# RO1: Plan for Data Visualization
+
+## Visualizing Marketing Performance
+
+- **Bar Chart:** Average order value by traffic source.
+- **Faceted Bar Chart:** Average order value by traffic source across product categories.
+- **Boxplot:** Distribution of order values by traffic source to identify variability and potential outliers.
 
 # R02:
 
@@ -178,9 +230,64 @@ Do repeat customers represent a lower-cost, higher-margin path to revenue than a
 
 ## Plan for Data Visualization
 
-# R05
+# RO5: Sales Trends and Seasonality
 
-enter text
+## Research Objective
+
+> **Objective:** Determine how sales performance changes over time and whether seasonal patterns differ across product categories.
+
+### Hypothesis
+
+- Revenue and order volume will vary across months and quarters.
+- Seasonal sales patterns will differ by product category.
+- Identifying peak sales periods can help improve inventory planning, promotions, and marketing strategies.
+
+# RO5: IV's and DV's
+
+## Variables Matrix
+
+| Variable Name | Variable Role | Data Type | Description |
+| :--- | :--- | :--- | :--- |
+| **`order_month`** | Independent Variable (IV) | Categorical / Ordered | Month in which the transaction occurred. |
+| **`order_quarter`** | Independent Variable (IV) | Categorical / Ordered | Quarter in which the transaction occurred. |
+| **`product_category`** | Independent Variable / Moderator | Categorical / Factor | Product category associated with the transaction. |
+| **`revenue`** | Dependent Variable (DV) | Numeric / Continuous | Revenue generated from each transaction. |
+| **`quantity`** | Dependent Variable (DV) | Numeric / Discrete | Number of items purchased in each transaction. |
+
+# RO5: Plan for Data Wrangling
+
+## From Records to Data
+
+- Use the existing transaction-level dataset, where each row represents one order.
+- Convert `order_date` into a proper date variable using `ymd()`.
+
+## Tidying the Data
+
+- Confirm that `order_date`, `revenue`, `quantity`, and `product_category` contain valid values.
+- Convert `product_category` into a factor.
+- Verify that revenue and quantity are stored as numeric variables.
+
+## Transforming the Data
+
+- Extract month, quarter, and year from `order_date`.
+- Group transactions by month and calculate total revenue, average revenue, and order volume.
+- Group transactions by month and product category to compare seasonal patterns.
+- Calculate monthly percentage changes in revenue and quantity.
+
+# RO5: Plan for Data Visualization
+
+## Visualizing Sales Trends
+
+- **Line Chart:** Monthly revenue over time.
+- **Line Chart:** Monthly order volume over time.
+- **Faceted Line Chart:** Revenue trends by product category.
+- **Heatmap:** Monthly revenue across product categories.
+- **Bar Chart:** Average quarterly revenue.
+
+## Proposed Statistical Analysis
+
+- Use a one-way ANOVA to test whether average revenue differs across quarters.
+- Use a two-way ANOVA to examine the interaction between quarter and product category.
 
 # Conclusion
 
